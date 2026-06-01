@@ -4,7 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E Vote GBLA H-4 Roundu Skardu – Pre-Polling System 2026</title>
+<script>
+  const API = "https://dependable-peace-production-f76a.up.railway.app/api";
+</script>
+  <script src="/config.js"></script>
+<script>
+  const API =
+    (window.APP_CONFIG && window.APP_CONFIG.API_BASE)
+      ? window.APP_CONFIG.API_BASE
+      : (location.protocol === 'http:' || location.protocol === 'https:')
+        ? (location.origin + '/api')
+        : 'http://localhost:3001/api';
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://dependable-peace-production-f76a.up.railway.app/config.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
