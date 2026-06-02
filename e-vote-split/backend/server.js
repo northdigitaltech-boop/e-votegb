@@ -7,6 +7,7 @@ const path    = require('path');
 const fs      = require('fs');
 
 const app  = express();
+app.set('trust proxy', true); // accurate client IP behind Railway/proxies
 const PORT = process.env.PORT || 3001;
 
 // Find the frontend folder (works whether deployed as split folders or together).
@@ -122,8 +123,11 @@ async function initDb(db) {
       ('Alam Noor','Independent','Topi Shanti','Independent candidate for GBA-10 Skardu-IV (Roundu).'),
       ('Nazim Hussain','AWP','Bulb','AWP candidate for GBA-10 Skardu-IV (Roundu).'),
       ('Wazir Muhammad Kazim','Independent','Key with Lock','Independent candidate for GBA-10 Skardu-IV (Roundu).'),
-      ('Wazir Ejaz','Independent','Two Swords','Independent candidate for GBA-10 Skardu-IV (Roundu).')`);
+      ('Wazir Ejaz','ITP','Two Swords','Independent candidate for GBA-10 Skardu-IV (Roundu).')`);
   }
+
+  // Correction: Wazir Ejaz is Islamic Tehreek Pakistan (ITP), not Independent (symbol unchanged).
+  await db.execute("UPDATE candidates SET party_name='ITP' WHERE name='Wazir Ejaz' AND party_name='Independent'");
 }
 
 // ── Startup ───────────────────────────────────────────────────────────────────
