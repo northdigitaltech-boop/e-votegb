@@ -558,6 +558,7 @@ const SYMBOL_EMOJI = {
   'Sword':'⚔️','Bat':'🏏','Cap':'🧢','Train':'🚂'
 };
 
+const TOTAL_VOTERS = 10000; // registered voters (for participation %)
 const PARTY_COLORS = {
   'PPP':'#3b82f6','PML-N':'#ef4444','IPP':'#f97316','PTI':'#22c55e',
   'MWM':'#991b1b','PNP':'#7c3aed','AWP':'#dc2626','Independent':'#94a3b8',
@@ -676,7 +677,7 @@ function updateHeroStats() {
   document.getElementById('h-votes').textContent = fmt(total);
   document.getElementById('h-cands').textContent = appData.candidates.length;
   document.getElementById('h-unions').textContent = appData.unions.length;
-  document.getElementById('h-pct').textContent = pct(total, 50000) + '%';
+  document.getElementById('h-pct').textContent = (TOTAL_VOTERS>0 ? (total/TOTAL_VOTERS*100).toFixed(2) : '0.00') + '%';
 }
 
 function renderHomeCandidates() {
@@ -913,6 +914,10 @@ function selectCand(id) {
 
 async function submitVote() {
   hideErr('vstep2-err');
+  // One vote per device — block repeat attempts from this device
+  if (localStorage.getItem('h4r_voted')) {
+    return showErr('vstep2-err', 'Your IP address has already cast a vote. Only one vote is allowed per device.');
+  }
   const name     = document.getElementById('v-name').value.trim();
   const mobile   = document.getElementById('v-mobile').value.trim();
   const email    = document.getElementById('v-email').value.trim();
@@ -947,6 +952,7 @@ async function submitVote() {
         </div>
         <div class="flex items-center gap-2 text-gray-400 text-xs"><i class="fas fa-clock w-4"></i>${new Date().toLocaleString()}</div>`;
     }
+    localStorage.setItem('h4r_voted', '1');   // lock this device after a successful vote
     showStep(3);
     showToast('✅ Vote submitted successfully!', 'bg-green-600');
     loadBaseData();
@@ -965,7 +971,7 @@ async function refreshDashboard() {
   document.getElementById('d-votes').textContent  = fmt(total);
   document.getElementById('d-cands').textContent  = r.candidates.length;
   document.getElementById('d-unions').textContent = r.unions.length;
-  document.getElementById('d-pct').textContent    = pct(total, 50000) + '%';
+  document.getElementById('d-pct').textContent    = (TOTAL_VOTERS>0 ? (total/TOTAL_VOTERS*100).toFixed(2) : '0.00') + '%';
   renderRankings(r.candidates);
   renderDashUnions(r.unions);
   renderCharts(r);
