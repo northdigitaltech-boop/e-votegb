@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E Vote GBLA H-4 Roundu Skardu – Pre-Polling System 2026</title>
 <script src="https://cdn.tailwindcss.com"></script>
-  <script src="./config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -181,7 +180,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
         <input type="text" id="home-search" placeholder="🔍 Search candidate or party…" oninput="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-72">
         <select id="home-filter-party" onchange="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
           <option value="">All Parties</option>
-          <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
+          <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="ITP">ITP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
         </select>
       </div>
       <div id="home-candidates" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
@@ -334,7 +333,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
           <input type="text" id="d-search" placeholder="Search…" oninput="renderRankings()" class="border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-36">
           <select id="d-filter-party" onchange="renderRankings()" class="border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
             <option value="">All Parties</option>
-            <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
+            <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="ITP">ITP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
           </select>
         </div>
       </div>
@@ -492,6 +491,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
           <option value="PTI">Pakistan Tehreek-e-Insaf (PTI)</option>
           <option value="MWM">Majlis Wahdat-e-Muslimeen (MWM)</option>
           <option value="PNP">Pakistan Nazriyati Party (PNP)</option>
+          <option value="ITP">Islamic Tehreek Pakistan (ITP)</option>
           <option value="AWP">Awami Workers Party (AWP)</option>
           <option value="Independent">Independent</option>
         </select>
@@ -561,11 +561,13 @@ const SYMBOL_EMOJI = {
 const PARTY_COLORS = {
   'PPP':'#3b82f6','PML-N':'#ef4444','IPP':'#f97316','PTI':'#22c55e',
   'MWM':'#991b1b','PNP':'#7c3aed','AWP':'#dc2626','Independent':'#94a3b8',
-  'JUI-F':'#a855f7'
+  'JUI-F':'#a855f7','ITP':'#0d9488'
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function pc(party){ return PARTY_COLORS[party] || '#64748b'; }
+const MEDIA_BASE = (typeof API === 'string') ? API.replace(/\/api\/?$/, '') : '';
+function resolveMedia(u){ if(!u) return u; if(/^(https?:)?\/\//.test(u) || /^data:/.test(u)) return u; return MEDIA_BASE + (u.charAt(0)==='/'?u:'/'+u); }
 function symEmoji(symbol){ return SYMBOL_EMOJI[symbol] || '🗳️'; }
 function symIcon(symbol){ return `<span class="sym-icon">${symEmoji(symbol)}</span>`; }
 function initials(name){ return name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase(); }
@@ -579,7 +581,7 @@ function avatarEl(name, party, size='') {
 function photoEl(name, party, photo, size='') {
   if (photo) {
     return `<div class="avatar ${size}" style="background:${pc(party)};overflow:hidden;padding:0">
-      <img src="${photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"
+      <img src="${resolveMedia(photo)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"
            onerror="this.parentElement.style.padding='';this.parentElement.innerHTML='${initials(name)}'">
     </div>`;
   }
@@ -806,10 +808,12 @@ function refreshCaptcha() {
 function populateUnionSelect() {
   const sel = document.getElementById('v-union');
   if (!sel) return;
+  const prev = sel.value;                 // keep the user's current choice
   sel.innerHTML = '<option value="">Select union council…</option>';
   appData.unions.forEach(u => {
     sel.innerHTML += `<option value="${u.id}">${u.union_name}</option>`;
   });
+  if (prev) sel.value = prev;             // restore it after rebuild
 }
 
 function resetVoteForm() {
