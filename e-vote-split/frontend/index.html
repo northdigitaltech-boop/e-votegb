@@ -58,7 +58,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
 </style>
 </head>
 <body>
-
 <!-- ── API CONFIG — backend URL is injected by /config.js (set via BACKEND_URL env) ── -->
 <script src="/config.js"></script>
 <script>
@@ -73,7 +72,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
         ? (location.origin + '/api')
         : 'http://localhost:3001/api';
 </script>
-
 <!-- TOAST -->
 <div id="toast">
   <div id="toast-inner" class="flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl text-white text-sm font-medium">
@@ -81,7 +79,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     <span id="toast-msg"></span>
   </div>
 </div>
-
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="hero-bg shadow-xl sticky top-0 z-40">
   <div class="flag-bar"></div>
@@ -112,7 +109,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </nav>
-
 <!-- ══════════ PAGE: HOME ══════════ -->
 <div id="page-home" class="page active">
   <section class="hero-bg hero-photo text-white py-20 px-4">
@@ -144,7 +140,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
       </div>
     </div>
   </section>
-
   <!-- ── ROTATING PROMO BANNER (North Digital Tech) ── -->
   <div class="ndt-marquee" role="banner" aria-label="North Digital Tech promo">
     <div class="ndt-track">
@@ -154,41 +149,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
       <a href="https://www.northdigitaltech.com/" target="_blank" rel="noopener"><i class="fas fa-laptop-code"></i>Need a website, mobile app, or e-commerce solution? Contact <span class="ndt-brand">North Digital Tech</span> today</a>
     </div>
   </div>
-
   <div class="bg-yellow-50 border-l-4 border-yellow-400 py-3 px-4">
     <div class="max-w-7xl mx-auto flex items-start gap-3 text-sm text-yellow-800">
       <i class="fas fa-exclamation-triangle text-yellow-500 mt-0.5 flex-shrink-0"></i>
       <span><strong>Important Notice:</strong> This platform is a public opinion poll and does not represent official election results. For informational purposes only.</span>
     </div>
   </div>
-
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-10"><h2 class="text-3xl font-bold text-gray-800">About This Pre-Poll</h2><p class="text-gray-500 mt-2">A transparent, secure, and real-time public opinion platform</p></div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card p-7 text-center"><div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-users text-green-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Public Participation</h3><p class="text-gray-500 text-sm">Open to all residents of GBLA H-4 Roundu Skardu. One verified vote per mobile number.</p></div>
-        <div class="card p-7 text-center"><div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-shield-alt text-blue-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Secure &amp; Verified</h3><p class="text-gray-500 text-sm">OTP verification, CAPTCHA protection, and IP tracking prevent duplicate votes.</p></div>
-        <div class="card p-7 text-center"><div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-chart-bar text-yellow-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Live Results</h3><p class="text-gray-500 text-sm">Real-time vote counts, rankings, and union-wise stats refreshed every 10 seconds.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8"><h2 class="text-3xl font-bold text-gray-800">Candidates</h2><p class="text-gray-500 mt-2">Meet the candidates contesting from GBLA H-4 Roundu Skardu</p></div>
-      <div class="flex flex-wrap gap-3 justify-center mb-8">
-        <input type="text" id="home-search" placeholder="🔍 Search candidate or party…" oninput="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-72">
-        <select id="home-filter-party" onchange="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-          <option value="">All Parties</option>
-          <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="ITP">ITP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
-        </select>
-      </div>
-      <div id="home-candidates" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-        <div class="col-span-5 text-center py-12 text-gray-400"><i class="fas fa-spinner spin text-3xl"></i><p class="mt-3">Loading candidates…</p></div>
-      </div>
-    </div>
-  </section>
-
   <section class="py-16 px-4 hero-bg text-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-10">
@@ -204,7 +170,21 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
       <div id="home-winner" class="winner-glow bg-white bg-opacity-10 rounded-2xl p-6 text-center max-w-md mx-auto"></div>
     </div>
   </section>
-
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8"><h2 class="text-3xl font-bold text-gray-800">Candidates</h2><p class="text-gray-500 mt-2">Meet the candidates contesting from GBLA H-4 Roundu Skardu</p></div>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        <input type="text" id="home-search" placeholder="🔍 Search candidate or party…" oninput="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-72">
+        <select id="home-filter-party" onchange="renderHomeCandidates()" class="border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+          <option value="">All Parties</option>
+          <option value="PPP">PPP</option><option value="PML-N">PML-N</option><option value="IPP">IPP</option><option value="PTI">PTI</option><option value="MWM">MWM</option><option value="PNP">PNP</option><option value="ITP">ITP</option><option value="AWP">AWP</option><option value="Independent">Independent</option>
+        </select>
+      </div>
+      <div id="home-candidates" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="col-span-5 text-center py-12 text-gray-400"><i class="fas fa-spinner spin text-3xl"></i><p class="mt-3">Loading candidates…</p></div>
+      </div>
+    </div>
+  </section>
   <section class="py-16 px-4 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-10"><h2 class="text-3xl font-bold text-gray-800">Union Council Results</h2><p class="text-gray-500 mt-2">Vote distribution across all union councils</p></div>
@@ -213,7 +193,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
       </div>
     </div>
   </section>
-
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10"><h2 class="text-3xl font-bold text-gray-800">About This Pre-Poll</h2><p class="text-gray-500 mt-2">A transparent, secure, and real-time public opinion platform</p></div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card p-7 text-center"><div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-users text-green-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Public Participation</h3><p class="text-gray-500 text-sm">Open to all residents of GBLA H-4 Roundu Skardu. One verified vote per mobile number.</p></div>
+        <div class="card p-7 text-center"><div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-shield-alt text-blue-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Secure &amp; Verified</h3><p class="text-gray-500 text-sm">OTP verification, CAPTCHA protection, and IP tracking prevent duplicate votes.</p></div>
+        <div class="card p-7 text-center"><div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-chart-bar text-yellow-700 text-2xl"></i></div><h3 class="font-bold text-gray-800 mb-2">Live Results</h3><p class="text-gray-500 text-sm">Real-time vote counts, rankings, and union-wise stats refreshed every 10 seconds.</p></div>
+      </div>
+    </div>
+  </section>
   <footer class="hero-bg text-white py-10 px-4">
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
       <div><h3 class="font-bold text-lg mb-3">E Vote GBLA H-4 Roundu Skardu</h3><p class="text-green-300 text-sm">A public opinion poll for the 2026 General Election. Not affiliated with any official election authority.</p></div>
@@ -223,7 +212,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     <div class="border-t border-green-700 pt-4 text-center text-green-400 text-sm">© 2026 E Vote GBLA H-4 Roundu Skardu System · For informational purposes only · Developed By <a href="https://www.northdigitaltech.com/" target="_blank" rel="noopener" class="text-green-200 hover:text-white font-semibold">Shabbir Hussain</a></div>
   </footer>
 </div>
-
 <!-- ══════════ PAGE: VOTE ══════════ -->
 <div id="page-vote" class="page">
   <div class="hero-bg py-10 px-4 text-white text-center">
@@ -239,7 +227,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
       <div class="flex-1 max-w-[80px] h-1 bg-gray-200 rounded" id="sl2"></div>
       <div class="step-circle todo" id="sc3"><i class="fas fa-check text-xs"></i></div>
     </div>
-
     <!-- Step 1: Voter Info -->
     <div id="vstep1" class="fadein">
       <div class="card p-8">
@@ -270,7 +257,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
         </button>
       </div>
     </div>
-
     <!-- Step 2: Choose Candidate -->
     <div id="vstep2" class="hidden fadein">
       <div class="card p-8">
@@ -284,7 +270,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
         </div>
       </div>
     </div>
-
     <!-- Step 3: Confirmation -->
     <div id="vstep3" class="hidden fadein">
       <div class="card p-8 text-center">
@@ -300,7 +285,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </div>
-
 <!-- ══════════ PAGE: DASHBOARD ══════════ -->
 <div id="page-dashboard" class="page">
   <div class="hero-bg py-10 px-4 text-white text-center">
@@ -345,7 +329,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </div>
-
 <!-- ══════════ PAGE: ADMIN LOGIN ══════════ -->
 <div id="page-admin-login" class="page">
   <div class="min-h-screen bg-gradient-to-br from-gray-900 to-green-900 flex items-center justify-center px-4">
@@ -364,7 +347,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </div>
-
 <!-- ══════════ PAGE: ADMIN ══════════ -->
 <div id="page-admin" class="page">
   <div class="flex h-screen overflow-hidden bg-gray-100">
@@ -395,7 +377,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
         </div>
       </div>
       <div class="flex-1 overflow-y-auto p-6">
-
         <!-- Overview -->
         <div id="as-overview" class="admin-section active">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -409,7 +390,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
             <div class="card p-5"><h3 class="font-bold text-gray-800 mb-3">Recent Activity Log</h3><div id="a-log" class="space-y-2 max-h-64 overflow-y-auto text-sm"></div></div>
           </div>
         </div>
-
         <!-- Candidates -->
         <div id="as-candidates" class="admin-section hidden">
           <div class="flex items-center justify-between mb-4">
@@ -423,7 +403,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
             </table>
           </div>
         </div>
-
         <!-- Unions -->
         <div id="as-unions" class="admin-section hidden">
           <div class="flex items-center justify-between mb-4">
@@ -437,7 +416,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
             </table>
           </div>
         </div>
-
         <!-- Vote Monitoring -->
         <div id="as-votes" class="admin-section hidden">
           <div class="flex items-center justify-between mb-4">
@@ -456,7 +434,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
             </div>
           </div>
         </div>
-
         <!-- Reports -->
         <div id="as-reports" class="admin-section hidden">
           <h2 class="font-bold text-gray-800 text-lg mb-6">Generate Reports</h2>
@@ -467,12 +444,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
             <div class="card p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-3"><i class="fas fa-user-check text-purple-600 text-xl"></i></div><h3 class="font-bold text-gray-800 mb-1">Candidate Wise Report</h3><p class="text-gray-400 text-sm mb-4">Individual performance per candidate</p><button onclick="genReport('candidate')" class="bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i>Download</button></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
-
 <!-- ══════════ MODALS ══════════ -->
 <div id="m-candidate" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center px-4">
   <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[92vh] overflow-y-auto">
@@ -521,7 +496,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </div>
-
 <div id="m-union" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center px-4">
   <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md">
     <div class="flex items-center justify-between p-5 border-b">
@@ -539,7 +513,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc}
     </div>
   </div>
 </div>
-
 <!-- ══════════════════════ JAVASCRIPT ══════════════════════════ -->
 <script>
 // ─── State ────────────────────────────────────────────────────────────────────
@@ -547,7 +520,6 @@ let appData   = { candidates: [], unions: [], results: null };
 let authToken = localStorage.getItem('h4r_token') || null;
 let captchaAns = 0, selectedCandId = null, currentStep = 1;
 let charts = {}, refreshTimer = null;
-
 const SYMBOL_EMOJI = {
   'Arrow':'➡️','Tiger':'🐯','Kite':'🪁','Cricket Bat':'🏏',
   'Lamp':'🪔','Book':'📖','Star':'⭐','Sun':'☀️',
@@ -557,14 +529,12 @@ const SYMBOL_EMOJI = {
   'Key with Lock':'🔐','Key':'🔑','Lock':'🔒','Two Swords':'⚔️',
   'Sword':'⚔️','Bat':'🏏','Cap':'🧢','Train':'🚂'
 };
-
 const TOTAL_VOTERS = 10000; // registered voters (for participation %)
 const PARTY_COLORS = {
   'PPP':'#3b82f6','PML-N':'#ef4444','IPP':'#f97316','PTI':'#22c55e',
   'MWM':'#991b1b','PNP':'#7c3aed','AWP':'#dc2626','Independent':'#94a3b8',
   'JUI-F':'#a855f7','ITP':'#0d9488'
 };
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function pc(party){ return PARTY_COLORS[party] || '#64748b'; }
 const MEDIA_BASE = (typeof API === 'string') ? API.replace(/\/api\/?$/, '') : '';
@@ -578,7 +548,6 @@ function fmtTime(s){ return new Date(s).toLocaleString('en-PK',{dateStyle:'short
 function avatarEl(name, party, size='') {
   return `<div class="avatar ${size}" style="background:${pc(party)}">${initials(name)}</div>`;
 }
-
 function photoEl(name, party, photo, size='') {
   if (photo) {
     return `<div class="avatar ${size}" style="background:${pc(party)};overflow:hidden;padding:0">
@@ -588,7 +557,6 @@ function photoEl(name, party, photo, size='') {
   }
   return avatarEl(name, party, size);
 }
-
 // ─── API ──────────────────────────────────────────────────────────────────────
 async function apiFetch(path, opts = {}) {
   if (authToken) {
@@ -603,14 +571,12 @@ async function apiFetch(path, opts = {}) {
   if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
   return data;
 }
-
 // ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
   refreshCaptcha();
   await loadBaseData();
   startAutoRefresh();
 }
-
 async function loadBaseData() {
   try {
     const [cands, unions] = await Promise.all([
@@ -628,7 +594,6 @@ async function loadBaseData() {
     showToast('⚠️ Cannot connect to server. Make sure the backend is running.', 'bg-red-600');
   }
 }
-
 async function loadResults() {
   try {
     const r = await apiFetch('/votes/results');
@@ -639,7 +604,6 @@ async function loadResults() {
     return null;
   }
 }
-
 // ─── Auto-refresh ─────────────────────────────────────────────────────────────
 function startAutoRefresh() {
   if (refreshTimer) clearInterval(refreshTimer);
@@ -655,7 +619,6 @@ function startAutoRefresh() {
     if (lu) lu.textContent = 'Last updated: ' + new Date().toLocaleTimeString();
   }, 10000);
 }
-
 // ─── Navigation ───────────────────────────────────────────────────────────────
 function showPage(p) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
@@ -670,7 +633,6 @@ function showPage(p) {
   }
 }
 function toggleMob() { document.getElementById('mob-menu').classList.toggle('hidden'); }
-
 // ─── Home ─────────────────────────────────────────────────────────────────────
 function updateHeroStats() {
   const total = appData.results?.total ?? appData.candidates.reduce((s,c)=>s+Number(c.vote_count||0),0);
@@ -679,7 +641,6 @@ function updateHeroStats() {
   document.getElementById('h-unions').textContent = appData.unions.length;
   document.getElementById('h-pct').textContent = (TOTAL_VOTERS>0 ? (total/TOTAL_VOTERS*100).toFixed(2) : '0.00') + '%';
 }
-
 function renderHomeCandidates() {
   const q = (document.getElementById('home-search')?.value || '').toLowerCase();
   const pf = document.getElementById('home-filter-party')?.value || '';
@@ -712,14 +673,12 @@ function renderHomeCandidates() {
     </div>`;
   }).join('');
 }
-
 function renderHomeTop3() {
   const sorted = [...appData.candidates].sort((a,b) => b.vote_count - a.vote_count).slice(0, 3);
   const total = appData.candidates.reduce((s,c) => s + Number(c.vote_count), 0);
   const cont = document.getElementById('home-top3');
   const winDiv = document.getElementById('home-winner');
   if (!cont || !sorted.length) return;
-
   const order = [1,0,2], heights = ['180px','220px','160px'], badges = ['🥈 2nd','🥇 1st','🥉 3rd'], cls = ['r2','r1','r3'];
   cont.innerHTML = order.map((ri, pi) => {
     if (!sorted[ri]) return '';
@@ -736,7 +695,6 @@ function renderHomeTop3() {
       </div>
     </div>`;
   }).join('');
-
   if (sorted[0] && winDiv) {
     const w = sorted[0], v = Number(w.vote_count), p2 = pct(v, total);
     winDiv.innerHTML = `
@@ -748,7 +706,6 @@ function renderHomeTop3() {
       <div class="text-green-200 text-sm">${p2}% of total votes</div>`;
   }
 }
-
 function unionCardHtml(u) {
   const cands = u.candidates || [], uTotal = Number(u.total_votes || 0);
   const villages = u.villages || [];
@@ -786,14 +743,12 @@ function unionCardHtml(u) {
     </div>` : '<div class="mt-2 text-xs text-gray-400 italic">No village votes yet</div>'}
   </div>`;
 }
-
 function renderHomeUnions() {
   const cont = document.getElementById('home-unions');
   if (!cont) return;
   if (!appData.unions.length) { cont.innerHTML = '<div class="col-span-3 text-center py-10 text-gray-400"><i class="fas fa-spinner spin text-2xl"></i></div>'; return; }
   cont.innerHTML = appData.unions.map(u => unionCardHtml(u)).join('');
 }
-
 // ─── CAPTCHA ──────────────────────────────────────────────────────────────────
 function refreshCaptcha() {
   const a = Math.floor(Math.random()*20)+1, b = Math.floor(Math.random()*20)+1;
@@ -804,7 +759,6 @@ function refreshCaptcha() {
   const ans = document.getElementById('captcha-a');
   if (ans) ans.value = '';
 }
-
 // ─── Vote flow ────────────────────────────────────────────────────────────────
 function populateUnionSelect() {
   const sel = document.getElementById('v-union');
@@ -816,7 +770,6 @@ function populateUnionSelect() {
   });
   if (prev) sel.value = prev;             // restore it after rebuild
 }
-
 function resetVoteForm() {
   selectedCandId = null;
   refreshCaptcha();
@@ -833,7 +786,6 @@ function resetVoteForm() {
   const vu = document.getElementById('v-union'); if (vu) vu.value = '';
   hideErr('vstep1-err'); hideErr('vstep2-err');
 }
-
 function showStep(n) {
   for (let i=1; i<=3; i++) {
     const el = document.getElementById('vstep'+i);
@@ -844,7 +796,6 @@ function showStep(n) {
   currentStep = n;
   updateStepUI(n);
 }
-
 function updateStepUI(step) {
   for (let i=1; i<=3; i++) {
     const el = document.getElementById('sc'+i);
@@ -856,7 +807,6 @@ function updateStepUI(step) {
     if (l) l.style.background = i<step ? '#014421' : '#e5e7eb';
   }
 }
-
 function showErr(id, msg) { const e=document.getElementById(id); if(e){e.classList.remove('hidden');e.textContent=msg;} }
 function hideErr(id)      { const e=document.getElementById(id); if(e)e.classList.add('hidden'); }
 function setBtnLoading(id, loading, label='') {
@@ -866,7 +816,6 @@ function setBtnLoading(id, loading, label='') {
   if (loading) btn.innerHTML = '<i class="fas fa-spinner spin mr-2"></i>Please wait…';
   else if (label) btn.innerHTML = label;
 }
-
 async function goStep2() {
   hideErr('vstep1-err');
   const name    = document.getElementById('v-name').value.trim();
@@ -879,7 +828,6 @@ async function goStep2() {
   if (!village)            return showErr('vstep1-err', 'Please enter your village / mohalla name.');
   if (!uid)                return showErr('vstep1-err', 'Please select your union council.');
   if (isNaN(ca) || ca !== captchaAns) { refreshCaptcha(); return showErr('vstep1-err', 'CAPTCHA answer is incorrect. Try again.'); }
-
   // Build candidate selection grid
   const grid = document.getElementById('vote-cand-grid');
   if (grid) {
@@ -899,7 +847,6 @@ async function goStep2() {
   }
   showStep(2);
 }
-
 function selectCand(id) {
   if (selectedCandId) {
     document.getElementById('cs-'+selectedCandId)?.classList.remove('selected');
@@ -911,7 +858,6 @@ function selectCand(id) {
   const ic = document.getElementById('ci-'+id);
   if (ic) ic.className = 'fas fa-check-circle text-green-700 text-lg';
 }
-
 async function submitVote() {
   hideErr('vstep2-err');
   // One vote per device — block repeat attempts from this device
@@ -923,14 +869,12 @@ async function submitVote() {
   const email    = document.getElementById('v-email').value.trim();
   const village  = document.getElementById('v-village').value.trim();
   const union_id = parseInt(document.getElementById('v-union').value);
-
   // Frontend validation before hitting API
   if (!name)              return showErr('vstep2-err', 'Go back to Step 1 and enter your full name.');
   if (!mobile)            return showErr('vstep2-err', 'Go back to Step 1 and enter your mobile number.');
   if (!village)           return showErr('vstep2-err', 'Go back to Step 1 and enter your village name.');
   if (!union_id || isNaN(union_id)) return showErr('vstep2-err', 'Go back to Step 1 and select your union council.');
   if (!selectedCandId)    return showErr('vstep2-err', 'Please select a candidate.');
-
   setBtnLoading('btn-submit', true);
   try {
     await apiFetch('/votes/cast', {
@@ -962,7 +906,6 @@ async function submitVote() {
     setBtnLoading('btn-submit', false, '<i class="fas fa-vote-yea mr-2"></i>Submit Vote');
   }
 }
-
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 async function refreshDashboard() {
   const r = await loadResults();
@@ -979,7 +922,6 @@ async function refreshDashboard() {
   renderHomeTop3();
   renderHomeUnions();
 }
-
 function renderRankings(cands) {
   cands = cands || appData.candidates;
   const q  = document.getElementById('d-search')?.value.toLowerCase() || '';
@@ -1007,14 +949,12 @@ function renderRankings(cands) {
     </div>`;
   }).join('');
 }
-
 function renderDashUnions(unions) {
   unions = unions || appData.unions;
   const cont = document.getElementById('d-union-results');
   if (!cont) return;
   cont.innerHTML = unions.map(u => unionCardHtml(u)).join('');
 }
-
 // ─── Charts ───────────────────────────────────────────────────────────────────
 function renderCharts(r) {
   r = r || appData.results;
@@ -1024,15 +964,12 @@ function renderCharts(r) {
   const labels = cands.map(c => c.name.split(' ').slice(0,2).join(' '));
   const vdata  = cands.map(c => Number(c.vote_count));
   const colors = cands.map(c => pc(c.party_name));
-
   destroyChart('bar');
   const bc = document.getElementById('ch-bar');
   if (bc) charts.bar = new Chart(bc, { type:'bar', data:{labels, datasets:[{data:vdata, backgroundColor:colors, borderRadius:8, borderSkipped:false}]}, options:{responsive:true, plugins:{legend:{display:false}, tooltip:{callbacks:{label:ctx=>`${fmt(ctx.raw)} votes (${pct(ctx.raw,total)}%)`}}}, scales:{y:{beginAtZero:true, grid:{color:'#f1f5f9'}, ticks:{callback:v=>fmt(v)}}, x:{grid:{display:false}}}} });
-
   destroyChart('pie');
   const pc2 = document.getElementById('ch-pie');
   if (pc2) charts.pie = new Chart(pc2, { type:'doughnut', data:{labels:cands.map(c=>c.name), datasets:[{data:vdata, backgroundColor:colors, borderWidth:2, borderColor:'#fff'}]}, options:{responsive:true, cutout:'60%', plugins:{legend:{position:'bottom', labels:{font:{size:11}, boxWidth:12}}}} });
-
   // Line chart
   destroyChart('line');
   const lc = document.getElementById('ch-line');
@@ -1047,7 +984,6 @@ function renderCharts(r) {
     }
     charts.line = new Chart(lc, { type:'line', data:{labels:days, datasets:[{label:'Votes Cast', data:counts, borderColor:'#22c55e', backgroundColor:'rgba(34,197,94,.12)', fill:true, tension:.4, pointRadius:4, pointBackgroundColor:'#22c55e'}]}, options:{responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, grid:{color:'#f1f5f9'}, ticks:{callback:v=>fmt(v)}}, x:{grid:{display:false}}}} });
   }
-
   // Union comparison
   destroyChart('union');
   const uc = document.getElementById('ch-union');
@@ -1064,9 +1000,7 @@ function renderCharts(r) {
     charts.union = new Chart(uc, { type:'bar', data:{labels: r.unions.map(u=>u.union_name.replace('Union Council ','UC ')), datasets}, options:{responsive:true, plugins:{legend:{position:'bottom', labels:{font:{size:11}, boxWidth:12}}}, scales:{y:{beginAtZero:true, grid:{color:'#f1f5f9'}, ticks:{callback:v=>fmt(v)}}, x:{grid:{display:false}}}} });
   }
 }
-
 function destroyChart(name) { if (charts[name]) { charts[name].destroy(); delete charts[name]; } }
-
 // ─── Admin ────────────────────────────────────────────────────────────────────
 async function doLogin() {
   const username = document.getElementById('al-user').value.trim();
@@ -1089,14 +1023,12 @@ async function doLogin() {
     setBtnLoading('btn-login', false, '<i class="fas fa-sign-in-alt mr-2"></i>Login');
   }
 }
-
 function doLogout() {
   authToken = null;
   localStorage.removeItem('h4r_token');
   showPage('home');
   showToast('Logged out successfully.', 'bg-gray-700');
 }
-
 function aSection(name) {
   document.querySelectorAll('.admin-section').forEach(el => { el.classList.remove('active'); el.classList.add('hidden'); });
   document.querySelectorAll('.sbl').forEach(el => el.classList.remove('active'));
@@ -1109,7 +1041,6 @@ function aSection(name) {
   if (name==='unions')     loadAdminUnions();
   if (name==='votes')      loadAdminVotes();
 }
-
 async function refreshAdminOverview() {
   try {
     const s = await apiFetch('/admin/stats');
@@ -1125,7 +1056,6 @@ async function refreshAdminOverview() {
     }
   }
 }
-
 function renderAdminLog(logs) {
   const el = document.getElementById('a-log');
   if (!el) return;
@@ -1137,7 +1067,6 @@ function renderAdminLog(logs) {
           <div><span class="font-semibold">${l.action}</span> — ${l.details||''} <span class="text-gray-400">· ${fmtTime(l.created_at)}</span></div>
         </div>`).join('');
 }
-
 function renderAdminBarChart(cands) {
   destroyChart('abar');
   const bc = document.getElementById('a-ch-bar');
@@ -1148,7 +1077,6 @@ function renderAdminBarChart(cands) {
     options:{ responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, grid:{color:'#f1f5f9'}, ticks:{callback:v=>fmt(v)}}, x:{grid:{display:false}}} }
   });
 }
-
 // Candidates
 async function loadAdminCandidates() {
   try {
@@ -1176,7 +1104,6 @@ async function loadAdminCandidates() {
       </tr>`).join('');
   } catch (e) { showToast(e.message, 'bg-red-600'); }
 }
-
 function openCandModal(id=null) {
   document.getElementById('m-cand-id').value = id||'';
   document.getElementById('m-cand-title').textContent = id ? 'Edit Candidate' : 'Add Candidate';
@@ -1187,7 +1114,6 @@ function openCandModal(id=null) {
   }
   document.getElementById('m-candidate').classList.remove('hidden');
 }
-
 async function editCand(id) {
   try {
     const c = await apiFetch('/candidates/'+id);
@@ -1202,7 +1128,6 @@ async function editCand(id) {
     document.getElementById('m-candidate').classList.remove('hidden');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 async function saveCandidate() {
   const id = document.getElementById('m-cand-id').value;
   // Handle photo — file upload or URL
@@ -1229,7 +1154,6 @@ async function saveCandidate() {
     showToast(id ? 'Candidate updated.' : 'Candidate added.', 'bg-green-600');
   } catch (e) { showToast(e.message, 'bg-red-600'); }
 }
-
 async function toggleCandStatus(id, newActive) {
   try {
     const c = await apiFetch('/candidates/'+id);
@@ -1238,7 +1162,6 @@ async function toggleCandStatus(id, newActive) {
     showToast(newActive ? 'Candidate activated.' : 'Candidate deactivated.', 'bg-blue-600');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 // Unions
 async function loadAdminUnions() {
   try {
@@ -1257,16 +1180,13 @@ async function loadAdminUnions() {
       </tr>`).join('');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 function openUnionModal(id=null, name='') {
   document.getElementById('m-union-id').value = id||'';
   document.getElementById('m-union-title').textContent = id ? 'Edit Union Council' : 'Add Union Council';
   document.getElementById('m-union-name').value = name;
   document.getElementById('m-union').classList.remove('hidden');
 }
-
 function editUnion(id, name) { openUnionModal(id, name); }
-
 async function deleteUnion(id, name) {
   if (!confirm(`Delete "${name}"?\n\nThis cannot be undone. Union councils with existing votes cannot be deleted.`)) return;
   try {
@@ -1277,7 +1197,6 @@ async function deleteUnion(id, name) {
     showToast(e.message, 'bg-red-600');
   }
 }
-
 async function saveUnion() {
   const id   = document.getElementById('m-union-id').value;
   const name = document.getElementById('m-union-name').value.trim();
@@ -1290,7 +1209,6 @@ async function saveUnion() {
     showToast(id ? 'Union updated.' : 'Union added.', 'bg-green-600');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 // Vote monitoring
 async function loadAdminVotes() {
   try {
@@ -1312,7 +1230,6 @@ async function loadAdminVotes() {
       </tr>`).join('');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 async function deleteVote(id, btn) {
   if (!confirm('Delete this participant\'s vote record? This frees their mobile/email to vote again and cannot be undone.')) return;
   try {
@@ -1326,7 +1243,6 @@ async function deleteVote(id, btn) {
     if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-trash-alt mr-1"></i>Delete'; }
   }
 }
-
 // Reports
 async function genReport(type) {
   try {
@@ -1349,11 +1265,9 @@ async function genReport(type) {
     showToast('Report downloaded.', 'bg-green-600');
   } catch (e) { showToast(e.message,'bg-red-600'); }
 }
-
 function exportCSV() {
   window.open(API + '/admin/export/csv', '_blank');
 }
-
 // ─── Photo upload ─────────────────────────────────────────────────────────────
 function setPhotoMode(mode) {
   document.getElementById('photo-url-div').classList.toggle('hidden', mode==='file');
@@ -1361,7 +1275,6 @@ function setPhotoMode(mode) {
   document.getElementById('pm-url').className  = 'px-3 py-1 text-xs font-bold rounded-lg ' + (mode==='url'?'bg-green-700 text-white':'bg-gray-200 text-gray-700');
   document.getElementById('pm-file').className = 'px-3 py-1 text-xs font-bold rounded-lg ' + (mode==='file'?'bg-green-700 text-white':'bg-gray-200 text-gray-700');
 }
-
 function previewPhoto(input) {
   const file = input.files[0];
   if (!file) return;
@@ -1372,7 +1285,6 @@ function previewPhoto(input) {
   };
   reader.readAsDataURL(file);
 }
-
 async function uploadCandidatePhoto() {
   const fileInput = document.getElementById('m-cand-photo-file');
   if (!fileInput.files[0]) return null;
@@ -1393,24 +1305,5 @@ async function uploadCandidatePhoto() {
     return null;
   }
 }
-
 // ─── Modals ───────────────────────────────────────────────────────────────────
-function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-// ─── Toast ────────────────────────────────────────────────────────────────────
-let toastTimer = null;
-function showToast(msg, bg='bg-green-600') {
-  const t=document.getElementById('toast'), ti=document.getElementById('toast-inner'), tm=document.getElementById('toast-msg');
-  if (!t) return;
-  ti.className=`flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl text-white text-sm font-medium ${bg}`;
-  tm.textContent=msg;
-  t.classList.add('show');
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 4000);
-}
-
-// ─── Start ────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', init);
-</script>
-</body>
-</html>
+function closeModal(id) { do
